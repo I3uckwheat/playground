@@ -34,7 +34,6 @@ app.post('/upload', multer(multerOptions).array('images', 100), (req, res) => {
 });
 
 function saveImage(file, category) {
-  const extension = file.mimetype.split('/')[1];
   return jimp.read(file.buffer)
     .then((image) => {
       image.resize(800, jimp.AUTO)
